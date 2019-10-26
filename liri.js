@@ -85,17 +85,16 @@ function searchOMDB(movieTitle) {
 
     axios.get(omdbQueryUrl).then(
         function (response) {
-            console.log(omdbQueryUrl);
-            console.log("================");
-            console.log(response.data);
-            //add title of movie
-            //add year the movie released
-            //add imdb rating of movie
-            //Rotten tomatoes rating
-            //country where the movie was produced
-            //language of the movie
-            //plot of the movie
-            //actors in the movie
+            console.log(`\r\n================= \r\n
+Movie title: ${response.data.Title} \r\n
+Year released: ${response.data.Year} \r\n
+IMDB rating: ${response.data.Ratings[0].Value} \r\n
+Rotten Tomatoes rating: ${response.data.Ratings[1].Value} \r\n
+Country where produced: ${response.data.Country} \r\n
+Language: ${response.data.Language} \r\n
+Plot: ${response.data.Plot} \r\n
+Actors: ${response.data.Actors} \r\n
+================= \r\n`);
 
         }).catch(function (error) {
             console.log(error);
