@@ -60,7 +60,13 @@ Date of Event: ${moment(response.data[0].datetime).format("MM-DD-YYYY")} \r\n
 
 //Search Spotify function
 function searchSpotify(songName) {
+    //variable for api key and secret
     var spotify = new Spotify(keys.spotify);
+
+    //if query is empty
+    if (!songName) {
+        songName = "The Sign";
+    }
 
     spotify.search({ type: "track", query: songName }, function(error, data) {
         if (error) {
@@ -79,7 +85,11 @@ Preview song here: ${data.tracks.items[0].href} \r\n
 //search OMDB function
 //make an if condition for an empty input to pull up "Mr. Nobody"
 function searchOMDB(movieTitle) {
-    var movieTitle = query;
+    //if query input is empty
+    if (!movieTitle) {
+        movieTitle = "Mr. Nobody";
+    }
+
     var apiKey = "trilogy"
     var omdbQueryUrl = `http://www.omdbapi.com/?apikey=${apiKey}&t=${movieTitle}`;
 
@@ -108,6 +118,8 @@ function getRandom() {
             return console.log(error);
         } else {
             console.log(data);
+            var randomData = data.split(",");
+            liriBot(randomData[0], randomData[1]);
         }
     });
 };
