@@ -47,10 +47,11 @@ function searchBandsInTown(artist) {
 
     axios.get(bandsInTownQueryURL).then(
         function (response) {
-            console.log(`\r\n================\r\n
+            console.log(`\r\n================ \r\n
 Name of Venue: ${response.data[0].venue.name} \r\n
 Venue Location: ${response.data[0].venue.city}, ${response.data[0].venue.country} \r\n
-Date of Event: ${moment(response.data[0].datetime).format("MM-DD-YYYY")} \r\n`);
+Date of Event: ${moment(response.data[0].datetime).format("MM-DD-YYYY")} \r\n
+================= \r\n`);
             
         }).catch(function (error) {
             console.log(error);
@@ -66,13 +67,12 @@ function searchSpotify(songName) {
             return console.log(`Error occured: ${error}`);
         }
 
-        console.log(data.tracks.items[0]);
-        console.log(`\r\n=================\r\n`);
-        //add artist
-        //add songs name
-        //add a preview link of the song from spotify
-        //add album the song is from
-        
+        console.log(`\r\n================= \r\n
+Song title: ${data.tracks.items[0].name} \r\n
+Artist(s): ${data.tracks.items[0].artists[0].name} \r\n
+Album: ${data.tracks.items[0].album.name} \r\n
+Preview song here: ${data.tracks.items[0].href} \r\n
+================= \r\n`);    
     });
 };
 
