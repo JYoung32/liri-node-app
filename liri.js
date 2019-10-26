@@ -5,7 +5,8 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var axios = require("axios");
-var momemt = require("moment");
+var fs = require("fs");
+var moment = require("moment");
 
 //variable to store argument input for command
 var command = process.argv[2];
@@ -31,7 +32,7 @@ function liriBot(command, query) {
             break;
 
         case "do-what-it-says":
-            //random function
+            getRandom();
             break;
 
         default:
@@ -46,12 +47,11 @@ function searchBandsInTown(artist) {
 
     axios.get(bandsInTownQueryURL).then(
         function (response) {
-            console.log(bandsInTownQueryURL);
-            console.log("================");
-            console.log(response.data);
-            //add name of venue
-            //add venue location
-            //date of event using moment
+            console.log(`\r\n================\r\n
+Name of Venue: ${response.data[0].venue.name} \r\n
+Venue Location: ${response.data[0].venue.city}, ${response.data[0].venue.country} \r\n
+Date of Event: ${moment(response.data[0].datetime).format("MM-DD-YYYY")} \r\n`);
+            
         }).catch(function (error) {
             console.log(error);
         });
@@ -60,7 +60,6 @@ function searchBandsInTown(artist) {
 //Search Spotify function
 function searchSpotify(songName) {
     var spotify = new Spotify(keys.spotify);
-    console.log(`Spotify Key: ${spotify}`);
 
     spotify.search({ type: "track", query: songName }, function(error, data) {
         if (error) {
@@ -68,7 +67,7 @@ function searchSpotify(songName) {
         }
 
         console.log(data.tracks.items[0]);
-        console.log(`=================`);
+        console.log(`\r\n=================\r\n`);
         //add artist
         //add songs name
         //add a preview link of the song from spotify
@@ -101,6 +100,17 @@ function searchOMDB(movieTitle) {
         }).catch(function (error) {
             console.log(error);
         });
+};
+
+//random function using random txt file
+function getRandom() {
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        } else {
+            console.log(data);
+        }
+    });
 };
 
 liriBot(command, query);
