@@ -1,11 +1,11 @@
-require("./.gitignore/node_modules/dotenv").config();
+require("dotenv").config();
 
 //create a variable to access keys file
 //create a variable for the required packages
 var keys = require("./keys.js");
-var Spotify = require("./.gitignore/node_modules/node-spotify-api");
-var axios = require("./.gitignore/node_modules/axios");
-var momemt = require("./.gitignore/node_modules/moment");
+var Spotify = require("node-spotify-api");
+var axios = require("axios");
+var momemt = require("moment");
 
 //variable to store argument input for command
 var command = process.argv[2];
@@ -60,13 +60,20 @@ function searchBandsInTown(artist) {
 //Search Spotify function
 function searchSpotify(songName) {
     var spotify = new Spotify(keys.spotify);
-    
-    spotify.search({ type: "Track", query: songName }, function(error, data) {
+    console.log(`Spotify Key: ${spotify}`);
+
+    spotify.search({ type: "track", query: songName }, function(error, data) {
         if (error) {
             return console.log(`Error occured: ${error}`);
         }
 
-        console.log(data);
+        console.log(data.tracks.items[0]);
+        console.log(`=================`);
+        //add artist
+        //add songs name
+        //add a preview link of the song from spotify
+        //add album the song is from
+        
     });
 };
 
