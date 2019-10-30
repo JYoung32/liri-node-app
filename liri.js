@@ -4,17 +4,18 @@ require("dotenv").config();
 //create a variable for the required packages
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
+var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var fs = require("fs");
 var moment = require("moment");
 
 //variable to store argument input for command
 var command = process.argv[2];
-console.log(`command: ${command}`);
+console.log(`\r\nCommand: ${command}`);
 
 //use the slice method to save user input for one or more inputs
 var query = process.argv.slice(3).join(" ");
-console.log(`input: ${query}`);
+console.log(`\r\nUser Query: ${query}`);
 
 //using switch statement to go through commands and fire off search functions
 function liriBot(command, query) {
@@ -60,9 +61,6 @@ Date of Event: ${moment(response.data[0].datetime).format("MM-DD-YYYY")} \r\n
 
 //Search Spotify function
 function searchSpotify(songName) {
-    //variable for api key and secret
-    var spotify = new Spotify(keys.spotify);
-
     //if query is empty
     if (!songName) {
         songName = "The Sign";
@@ -90,7 +88,7 @@ function searchOMDB(movieTitle) {
         movieTitle = "Mr. Nobody";
     }
 
-    var apiKey = "trilogy"
+    var apiKey = "trilogy";
     var omdbQueryUrl = `http://www.omdbapi.com/?apikey=${apiKey}&t=${movieTitle}`;
 
     axios.get(omdbQueryUrl).then(
