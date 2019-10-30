@@ -8,10 +8,12 @@ This application makes calls to the Spotify API(also known as Application Progra
 
 ***NOTE: If you would like to clone this repo, you will have to add your own .env file with your own personal Spotify ID and Secret. The format of your .env file should look like the example below.
 
->### Spotify API Key
->
->SPOTIFY_ID=<your Spotify ID>
->SPOTIFY_SECRET=<your Spoitify Secret>
+*******************
+Spotify API Key
+
+SPOTIFY_ID=<your Spotify ID>
+SPOTIFY_SECRET=<your Spoitify Secret>
+*******************
 
 ### Liri's Commands
 
@@ -31,7 +33,7 @@ This app can take in one of the following commands:
      * Date of the Event ("MM/DD/YYYY")
 
 EXAMPLE:
-![Concert Example](images/concert_this screenshot.png)
+![Concert Example](/images/concert_this screenshot.png)
 
 2. `node liri.js spotify-this-song '<song name here>'`
 
@@ -44,7 +46,7 @@ EXAMPLE:
    *If no song is provided then your program will default to "The Sign"*
 
 EXAMPLE:
-![Song Example](images\spotify-this-song screenshot.png)
+![Song Example](/images/spotify-this-song screenshot.png)
 
 3. `node liri.js movie-this '<movie name here>'`
 
@@ -60,7 +62,7 @@ EXAMPLE:
    *If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'*
 
 EXAMPLE:
-![Movie Example](images\movie-this screenshot.png)
+![Movie Example](/images/movie-this screenshot.png)
 
 4. `node liri.js do-what-it-says`
 
