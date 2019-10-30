@@ -11,7 +11,7 @@ This application makes calls to the Spotify API(also known as Application Progra
 *******************
 Spotify API Key
 
-SPOTIFY_ID=[ your Spotify ID ]
+SPOTIFY_ID=[ your Spotify ID ]<br>
 SPOTIFY_SECRET=[ your Spoitify Secret ]
 *******************
 
