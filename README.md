@@ -11,8 +11,8 @@ This application makes calls to the Spotify API(also known as Application Progra
 *******************
 Spotify API Key
 
-SPOTIFY_ID=<your Spotify ID>
-SPOTIFY_SECRET=<your Spoitify Secret>
+SPOTIFY_ID=< your Spotify ID>
+SPOTIFY_SECRET=< your Spoitify Secret>
 *******************
 
 ### Liri's Commands
@@ -33,7 +33,7 @@ This app can take in one of the following commands:
      * Date of the Event ("MM/DD/YYYY")
 
 EXAMPLE:
-![Concert Example](/images/concert_this screenshot.png)
+![Concert-Example](/images/concert_this screenshot.png)
 
 2. `node liri.js spotify-this-song '<song name here>'`
 
@@ -46,7 +46,7 @@ EXAMPLE:
    *If no song is provided then your program will default to "The Sign"*
 
 EXAMPLE:
-![Song Example](/images/spotify-this-song screenshot.png)
+![Song-Example](/images/spotify-this-song screenshot.png)
 
 3. `node liri.js movie-this '<movie name here>'`
 
@@ -62,7 +62,7 @@ EXAMPLE:
    *If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'*
 
 EXAMPLE:
-![Movie Example](/images/movie-this screenshot.png)
+![Movie-Example](/images/movie-this screenshot.png)
 
 4. `node liri.js do-what-it-says`
 
@@ -76,11 +76,3 @@ EXAMPLE:
 * BandsInTown API (via Axios npm module)
 * Spotify API (via Stopify npm module)
 * OMDB API (via Axios npm module)
-
-<!-- Clearly state the problem the app is trying to solve (i.e. what is it doing and why)
-Give a high-level overview of how the app is organized
-Give start-to-finish instructions on how to run the app
-Include screenshots, gifs or videos of the app functioning
-Contain a link to a deployed version of the app
-Clearly list the technologies used in the app
-State your role in the app development -->
